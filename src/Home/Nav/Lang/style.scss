@@ -1,0 +1,12 @@
+@import "../../../mixins.scss";
+
+.lang {
+    margin-bottom: 32px; //@media
+    text-align: center;
+    //color: #0EC261;
+    @include font(700, 13px, 15px, #0EC261);
+
+    @include mobile {
+        display: none;
+    }
+}

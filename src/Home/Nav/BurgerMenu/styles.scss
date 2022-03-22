@@ -1,0 +1,167 @@
+@import "../../../mixins.scss";
+
+.burgerMenu {
+    margin-top: 32px; //@media
+    @include mobile {
+        margin-top: 16px;
+    }
+
+    display: flex;
+    justify-content: center;
+    //border: 5px solid red;
+}
+.menu_icon { 
+    z-index: 5;
+    display: block;
+    position: relative;
+    width: 24px; //@media
+    @include tablet {
+        width: 37%; 
+    }
+    height: 26px;
+
+    span, &::before, &::after {
+        left: 0px;
+        position: absolute;
+        width: 100%; //@media
+        height: 3px;
+        transition: all 0.3s ease 0s;
+        background-color: #FFFFFF; //@media
+        border-radius: 10px;
+
+        @include mobile {
+            width: 19px;
+            background-color: #121212;
+            border-radius: 8px;
+        }
+    }
+    &::before, &::after { 
+        content: "";
+    }
+    &::before { 
+        top: 0;
+    }
+    &::after { 
+        bottom: 0;
+    }
+    span {
+        top: 50%;
+        transform: scale(1) translate(0px, -50%);
+    }
+}
+.active {
+
+    span {
+        transform: scale(0) translate(0px, -50%);
+    }
+    &::before { 
+        @include mobile {
+            background-color: #FFFFFF;
+        }
+        top: 50%;
+        transform: rotate(-45deg) translate(0px, -50%);
+    }
+    &::after { 
+        @include mobile {
+            background-color: #FFFFFF;
+        }
+        bottom: 50%;
+        transform: rotate(45deg) translate(0px, 50%);
+    }
+}
+
+.menu_body {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(21, 27, 31, 0.81); //@media
+    transition: left 0.3s ease 0s;
+
+    display: grid;
+    grid-template-columns: calc(50vw + 33px) 50vw;
+    grid-template-rows: 1fr;
+    @include mindesktop {
+        grid-template-columns: calc(50vw + 97px) 50vw;
+    }
+    @include tablet {
+        grid-template-columns: 1fr;
+    }
+    @include mobile {
+        grid-template-columns: 1fr;
+    }
+
+    .menu_list {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr auto 1fr;
+
+        height: 100%;
+        background-color: #111518;
+        z-index: 10;
+
+        padding-left: 64px; //!!!!!!!!!!!!
+
+        @include mindesktop {
+            padding-left: 97px;
+        }
+        @include tablet {
+            width: 100%;
+            padding-left: 97px;
+        }
+        @include mobile {
+            grid-template-rows: 5fr auto 21fr;
+            width: 100%;
+            padding-left: 28px;
+        }
+
+        .menu_links {
+            grid-row: 2/3;
+
+            li {
+                margin: 0 0 10px 0;
+            }
+            li:last-child {
+                margin-bottom: 0;
+            }
+            .menu_link {
+                @include font(500, 32px, 37.5px, #FFFFFF);
+
+                @include tablet {
+                    @include font(500, 28px, 32.81px, #FFFFFF);
+                }
+                @include mobile {
+                    @include font(500, 22px, 25.78px, #FFFFFF);
+                }
+            }
+        }
+
+        .post_social{
+            margin-top: 38px;
+            grid-row: 3/4;
+
+            @include mobile {
+                grid-row: 3/4;
+            }
+
+            .fa-circle{
+                color: #FFFFFF;
+            }
+            .fa-telegram {
+                color: #FFFFFF;
+                font-size: 28px;
+                padding-right: 0px;
+            }
+            i { 
+                vertical-align: middle;
+            }
+            .fa-stack {
+                margin-right: 24px;
+            }
+            .circle-2 {
+                font-size: 32px;
+            }
+        }
+    }
+}

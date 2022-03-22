@@ -1,0 +1,62 @@
+@import "../../../mixins.scss";
+
+main {
+    //grid-row: 2/3;
+    grid-area: main_;
+    background-color: #FFFFFF;
+    padding: 0 64px;
+    @include mindesktop {
+        padding: 0 32px;
+    }
+
+    h1 {
+        @include font(bold, 70px, 66px, #121212);
+        margin-bottom: 4px;
+    }
+    h2 {
+        @include font(bold, 70px, 66px, #0EC261);
+        margin-bottom: 34px;
+    }
+    p {
+        @include font(300, 26px, 30px, #999999);
+        margin-bottom: 60px;
+    }
+    input {
+        @include button(250px, 48px, #FFFFFF, 8px, linear-gradient(90deg, #0EC261 2.61%, #039F67 112.6%));
+    }
+
+    @include tablet {
+        padding: 0 32px;
+        background-color: #E5E5E5;
+
+        h1 {
+            @include font(700, 70px, 100%, #121212);
+            margin-bottom: 4px;
+        }
+        .Needfordrive {
+            @include font(700, 70px, 100%, #0EC261);
+            margin-bottom: 34px;
+        }
+    }
+    @include mobile {
+        padding: 0px;
+        background-color: #E5E5E5;
+        h1 {
+            @include font(700, 32px, 100%, #121212);
+            margin: 0 16px 6px;
+        }
+        h2 {
+            @include font(700, 32px, 100%, #0EC261);
+            margin: 0 16px 16px;
+        }
+        p {
+            @include font(300, 18px, 21px, #999999);
+            margin: 0 16px 32px;
+        }
+        input {
+            padding: 0;
+            margin: 0;
+            @include button(100%, 50px, #FFFFFF, 0px, linear-gradient(90deg, #0EC261 2.61%, #039F67 112.6%));
+        }
+    }
+}

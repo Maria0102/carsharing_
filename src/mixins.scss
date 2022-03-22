@@ -1,0 +1,69 @@
+//@import "variables.scss";
+@mixin mindesktop {
+    @media screen and (min-width: 1024px) and (max-width: 1439px) {
+    //@media screen and (max-width: 1439px) {
+        @content;
+    }
+}
+@mixin tablet {
+    @media screen and (min-width: 768px) and (max-width: 1023px) {
+    //@media screen and (max-width: 1023px) {
+        @content;
+    }
+}
+@mixin mobile {
+    //@media screen and (min-width: 320px) and (max-width: 767px) {
+    @media screen and (max-width: 767px) {
+        @content;
+    }
+}
+
+@mixin font($weight,$size,$height,$color) {
+    font-weight: $weight;
+    font-size: $size;
+    line-height: $height;
+    color: $color;
+}
+@mixin button($width, $height, $fontcolor, $radius, $background) {
+    width: $width;
+    height: $height;
+    @include font(500, 18px, 21px, $fontcolor);
+    text-align: center;
+    border-radius: $radius;
+    background: $background;
+    border: 0;
+}
+/*
+@mixin padding($spacer1, $spacer2) {
+    .centralpart {
+        padding: $spacer1 $spacer2;
+    }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1439px) {
+    @include padding($spacer1: 32px, $spacer2: 32px);
+ }
+ @media screen and (min-width: 1400px) {
+    @include padding($spacer1: 32px, $spacer2: 64px);
+ }
+ */
+
+
+@mixin BGcolorMP ($background-third) {
+    display: flex;
+    background-color: $background-main; //#FFFFFF;
+
+    @include tablet {
+        background-color: $background-second; //#E5E5E5;
+    }
+    @include mobile {
+        color: #121212;
+        background-color: $background-third; // $background-footer;//#151B1F;
+    }
+}
+
+
+//$value-map: (text: #00ff00, background: #0000ff, border: #ff0000);
+//.secondary {
+//  @include colors($value-map...);
+//}

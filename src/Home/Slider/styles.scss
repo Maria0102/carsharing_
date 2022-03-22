@@ -1,0 +1,81 @@
+@import "../../mixins.scss";
+
+.slideShow {
+
+    grid-area: slide;
+  
+    @media screen and (max-width: 1023px) {
+        display: none;
+    }
+}
+
+.slideHolder {
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    .slide {
+        height: 100%;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+        mix-blend-mode: normal;
+        align-items: center;
+
+        display: grid;
+
+        grid-template-areas: "arrowLeft content arrowRight"  
+                        "arrowLeft dots arrowRight";
+
+        grid-template-columns: 64px 1fr 64px;
+        grid-template-rows: 1fr auto;
+
+        @media screen and (max-width: 1439px) {
+            grid-template-columns: 32px 1fr 32px;
+            grid-template-rows: 1fr auto;
+        }
+    
+        .slideContent {
+            grid-area: content;
+            
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            
+            padding: 0 32px;
+                
+                .slideName {
+                    @include font(500, 40px, 47px, #FFFFFF);
+                    margin-bottom: 8px;
+                }
+                .slideText {
+                    @include font(300, 24px, 90%, #EEEEEE);
+                    margin-bottom: 32px;
+                }
+
+                input {
+                    @include button(164px, 48px, #EEEEEE, 4px, "");
+                }
+            }
+        
+            .slideDots{
+                width: 100%;
+                grid-area: dots;
+                text-align: center;
+                padding-bottom: 32px;
+                
+                .dot {
+                    cursor: pointer;
+                    height: 8px;
+                    width: 8px;
+                    margin: 0 4px;
+                    background-color: #EEEEEE;
+                    border-radius: 50%;
+                    display: inline-block;
+                    transition: background-color 0.6s ease;
+                }
+                .active, .dot:hover{
+                    background-color: #0EC261;
+                }
+            }
+    }
+}

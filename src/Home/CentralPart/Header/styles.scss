@@ -1,0 +1,43 @@
+@import "../../../mixins.scss";
+
+header {
+
+    grid-area: header_;
+
+    .content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        //background-color: #FFFFFF;
+        //border: 2px solid rgb(8, 90, 243);
+
+        a {
+            @include font(700, 30px, 35px, #0EC261);
+        }
+        p {
+            @include font(400, 14px, 16px, #999999);
+        }
+    }
+
+    padding: 32px 64px 0;
+    @include mindesktop {
+        padding: 32px 32px 0;
+    }
+
+    @include tablet {
+        padding: 32px 32px 0;
+        background-color: #E5E5E5;
+    }
+
+    @include mobile {
+        padding: 16px 16px 8px 16px;
+        background-color: #E5E5E5;
+        .content {
+            flex-direction: column;
+            align-items: flex-end;
+            a {
+                margin-bottom: 8px;
+            }
+        }
+    }
+}

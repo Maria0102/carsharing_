@@ -1,0 +1,40 @@
+@import "../../../mixins.scss";
+
+@mixin background() {
+    height: 100%;
+    cursor: pointer;
+    //border: 5px solid red;
+    //position: relative;
+
+    &:hover {
+        background: #0EC261;
+        opacity: 0.2;
+    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.arrowBox {
+    //border: 5px solid #ff7300;
+    //position: absolute;
+    //top: calc(50% - 9px);
+    //left: calc(50% - 4px);
+
+    img {
+        width: 8px;
+        height: 18px;
+    }
+}
+
+.arrowLeft{
+    //border: 5px solid #0026ff;
+    grid-area: arrowLeft;
+
+    @include background;
+} 
+.arrowRight{
+    //border: 5px solid #1eff00;
+    grid-area: arrowRight;
+
+    @include background;
+}
